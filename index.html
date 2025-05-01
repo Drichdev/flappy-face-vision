@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flappy Face Vision</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+</head>
+<body>
+  <!-- Écran de démarrage -->
+  <div id="startScreen" class="screen">
+    <h1>FLAPPY FACE VISION</h1>
+    <div class="instructions">
+      <p>Ouvrez la bouche pour faire voler l'oiseau !</p>
+      <p>Plus vous ouvrez la bouche, plus l'oiseau monte haut.</p>
+      <p>Évitez les tuyaux verts pour marquer des points.</p>
+    </div>
+    <button id="playButton" class="mdc-button mdc-button--raised">
+      <span class="mdc-button__ripple"></span>
+      <span class="mdc-button__label">Jouer</span>
+    </button>
+  </div>
+
+  <!-- Animation de transition -->
+  <div id="transitionTop" class="transition-bar top"></div>
+  <div id="transitionBottom" class="transition-bar bottom"></div>
+
+  <!-- Interface de jeu -->
+  <div id="gameScreen" class="screen hidden">
+    <div class="game-header">
+      <div class="video-container">
+        <div id="liveView" class="videoView">
+          <video id="webcam" autoplay playsinline></video>
+          <canvas class="output_canvas" id="output_canvas"></canvas>
+        </div>
+        <div id="jawValue">Ouverture: 0%</div>
+      </div>
+      <div class="game-stats">
+        <div id="timer">00:00</div>
+        <div id="scoreDisplay">Score: 0</div>
+      </div>
+    </div>
+    
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="gameOverScreen" class="hidden">
+      <div class="game-over-content">
+        <h2>GAME OVER</h2>
+        <div id="finalStats"></div>
+        <button id="retryButton" class="mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span>
+          <span class="mdc-button__label">Réessayer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3"></script>
+  <script src="script.js" type="module"></script>
+</body>
+</html>

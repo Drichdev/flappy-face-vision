@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s;
+  background: #0a0a12;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#startScreen {
+  text-align: center;
+  z-index: 10;
+}
+
+#startScreen h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.instructions {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.mdc-button {
+  --mdc-theme-primary: #00ff88;
+  --mdc-theme-on-primary: #000;
+  font-weight: bold;
+  padding: 10px 60px;
+  font-size: medium;
+}
+
+.transition-bar {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #000;
+  z-index: 20;
+  transition: height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.transition-bar.top {
+  top: 0;
+}
+
+.transition-bar.bottom {
+  bottom: 0;
+}
+
+/* Interface de jeu */
+#gameScreen {
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.game-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+
+.video-container {
+  position: relative;
+  width: 220px;
+  height: 180px;
+  border: 2px solid #00ff88;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#liveView {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#webcam, #output_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
+
+#output_canvas {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#jawValue {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 5px;
+  color: #00ff88;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.2rem;
+  color: #00ff88;
+}
+
+#gameCanvas {
+  border: 2px solid #00ff88;
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 70vh;
+  margin: 0 auto;
+}
+
+#gameOverScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.game-over-content {
+  text-align: center;
+  background: #0a0a12;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #00ff88;
+}
+
+.game-over-content h2 {
+  color: #ff0033;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+#finalStats {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
