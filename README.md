@@ -2,6 +2,10 @@
 
 A demo game that combines a classic Flappy Bird–style gameplay with real-time face-landmark AI. The player “flaps” the bird by opening their mouth: the wider the jaw opens, the more flap impulses are sent (up to 4 per frame).
 
+Game link:
+
+[Flappy face vision]()
+
 ## Technologies
 
 - **HTML5** & **CSS3** — page structure & styling  
